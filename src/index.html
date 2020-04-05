@@ -9,6 +9,21 @@
   </head>
   <body>
     <div class="container">
+      <div id="insert-modal" class="insert-modal">
+        <div id="close-modal" class="close"><img src="assets/img/icon.png"></img></div>
+        <h2>Adicionar funcionalidade</h2>
+        <hr>
+        <h3>Funcionalidade</h3>
+        <p>Descreva a funcionalidade</p>
+        <input type="text"></input>
+        <h3>Horas de desenvolvimento</h3>
+        <p>Estime quantas horas serão gastas no desenvolvimento</p>
+        <input type="number"></input>
+        <h3>Horas de teste</h3>
+        <p>Estime quantas horas serão gastas para testes</p>
+        <input type="number"></input>
+        <button>Inserir</button>
+      </div>
       <header>
         <img class="logo" src="assets/img/He4rtLogo.png"/>
         <h1 class="title">Planilha de cotação para Freelance</h1>
@@ -16,7 +31,7 @@
       <div class="grid-first">
       <div class="action">
         <ul>
-        <li>Inserir</li>
+        <li id="open-insert-modal">Inserir</li>
         <li>Apagar</li>
         <li>Importar</li>
         <li>Exportar</l1>
@@ -29,6 +44,7 @@
       </div>
       <div class="functionalities">
         <div class="functionalities-box">
+          <h3>Lista de funcionalidades</h3>
           <div class="functionalities-input">
             <p>Nome da Funcionalidade</p>
             <p>Horas de Desenvolvimento</p>
@@ -36,7 +52,37 @@
             <p>Valor da funcionalidade</p>
           </div>
         </div>
+        <div class="total-functionalities">
+          <h3>Resumo</h3>
+          <div class="total-functionalities-title">
+            <p>Total de funcionalidades</p>
+            <p>0</p>
+          </div>
+          <div class="total-functionalities-title">
+            <p>Total de horas de desenvolvimento</p>
+            <p>0</p>
+          </div>
+          <div class="total-functionalities-title">
+            <p>Total horas de teste</p>
+            <p>0</p>
+          </div>
+          <div class="total-functionalities-title">
+            <p>Valor Total</p>
+            <p>0</p>
+          </div>
+        </div>
       </div>
+
+      <footer>
+        <div class="he4rtLab">
+          <p>Esse desafio foi proposto pela He4rt Developers, e está disponível no Github 
+          <a href="https://github.com/he4rt/heartlabs-challenges">He4rt Challenges</a>
+          </p>
+          <p>
+            Acesse meu <a href="https://github.com/ViniOtacilio">GITHUB</a>
+          </p>
+        </div>
+      </footer>
     </div>
 
 
