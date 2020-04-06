@@ -7,6 +7,7 @@ let features = [
     testHours: 2
   }
 ];
+
 // Implementação do modal aparecendo/desaparecendo
 
 let modal = document.getElementById("insert-modal");
@@ -23,4 +24,50 @@ closeModal.onclick = function (event) {
     modal.style.display = "none";
   
 }
-// Dica: faça o layout e depois pense em como vai funcionar o script.
+// Fim da implementação do modal aparecendo/desaparecendo
+
+//Salvando inputs do inserir em variáveis
+
+let valueHour = document.getElementById('hour-value');
+let valueHoursCost = 0;
+
+valueHour.addEventListener("change", (event) => {
+  event.preventDefault();
+  valueHoursCost = valueHour.value;
+})
+
+const inputFunc = document.getElementById('insert-functionalities');
+
+inputFunc.addEventListener("click", (event) => {
+    event.preventDefault();
+    let nameFunc = document.getElementById('name-functionalities').value;
+    let developHours = document.getElementById('develop-hours').value;
+    let testHours = document.getElementById('test-hours').value;
+    modal.style.display=  "none";
+
+    //Criando DIV com os valores
+    let div = document.createElement('DIV');
+    div.classList.add('functionalities-input');
+    let functionalityName = document.createElement('P');
+    let textFunctionality = document.createTextNode(nameFunc);
+    let HourDevelopeds = document.createElement('P');
+    let textDevel = document.createTextNode(developHours);
+    let HourText = document.createElement('P');
+    let testHour = document.createTextNode(testHours);
+    let ValueText = document.createElement('P');
+    let ValueFunctionality = document.createTextNode(valueHoursCost);
+
+    functionalityName.appendChild(textFunctionality);
+    HourDevelopeds.appendChild(textDevel);
+    HourText.appendChild(testHour);
+    ValueText.appendChild(ValueFunctionality);
+
+    div.appendChild(functionalityName);
+    div.appendChild(HourDevelopeds);
+    div.appendChild(HourText);
+    div.appendChild(ValueText);
+
+    document.getElementById('functionalities-box').appendChild(div);
+});
+
+// Fim da implementação de inputs em variáveis;
