@@ -48,6 +48,7 @@ inputFunc.addEventListener("click", (event) => {
     //Criando DIV com os valores
     let div = document.createElement('DIV');
     div.classList.add('functionalities-input');
+    div.id = 'functionalities-input';
     let functionalityName = document.createElement('P');
     let textFunctionality = document.createTextNode(nameFunc);
     let HourDevelopeds = document.createElement('P');
@@ -71,3 +72,26 @@ inputFunc.addEventListener("click", (event) => {
 });
 
 // Fim da implementação de inputs em variáveis;
+
+// Remover features
+
+const deleteInput = document.getElementById('delete-input');
+
+function removeInput (e) {
+  e = e || window.event;
+  let target = e.target || e.srcElement;
+  let divInput = target.parentNode;
+  if(divInput.id === 'functionalities-input') {
+    divInput.remove(0);
+    document.removeEventListener('click', removeInput);
+  }
+}
+
+deleteInput.addEventListener("click", (event )=> {
+  document.addEventListener('click', removeInput);
+});
+
+
+
+
+// BUG - Se o usuário não escrever nada na hora de adicionar funcionalidade, o campo é criado todo em branco. (Não resolvido)

@@ -134,6 +134,7 @@ input:focus {
     height: auto;
     display: flex;
     margin-top: 5rem;
+    overflow-x: auto;
 }
 
 .functionalities-box {
