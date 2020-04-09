@@ -92,6 +92,12 @@ deleteInput.addEventListener("click", (event )=> {
 });
 
 
+// Importar arquivo jason
 
+document.getElementById('import-file').addEventListener('click', sendFile);
+
+function sendFile () {
+  document.getElementById('fileid').click();
+}
 
 // BUG - Se o usuário não escrever nada na hora de adicionar funcionalidade, o campo é criado todo em branco. (Não resolvido)
