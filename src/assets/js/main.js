@@ -1,5 +1,5 @@
+let feature = [];
 // Implementação do modal aparecendo/desaparecendo
-
 let modal = document.getElementById("insert-modal");
 
 let openModal = document.getElementById("open-insert-modal");
@@ -39,6 +39,12 @@ inputFunc.addEventListener("click", (event) => {
 });
 
 function adicionarFuncionalidades(nameFunc,DevelopHours,TestHours) {
+
+  feature.push({
+    feature: nameFunc,
+    devHours: DevelopHours,
+    testHours: TestHours
+  });
 
   let DevelopHoursToNumber = parseInt(DevelopHours,10);
   let TestHoursToNumber = parseInt(TestHours,10);
@@ -110,8 +116,15 @@ function handleFile(e) {
     reader.onload = (function(file) {
         return function(e) {
           const necessaryProperties = ["feature","devHours","testHours"];
+          let elements = document.getElementsByClassName('functionalities-input');
+
           JsonObj = JSON.parse(e.target.result);
           objectJson = JsonObj;
+
+          while(elements.length > 0) {
+            elements[0].parentNode.removeChild(elements[0]);
+          }
+
           objectJson.forEach(function(object) {
           let hasAll = necessaryProperties.every(necessaryProperties => object.hasOwnProperty(necessaryProperties));
             if(hasAll == false){
@@ -125,10 +138,26 @@ function handleFile(e) {
         };
       })(f);
       reader.readAsText(f);
-}
+};
 
+// Fim da importação de arquivo Jason
 
+// Inicio da exportaçao de JSON;
 
+let exportFile = document.getElementById('export-file');
+exportFile.addEventListener('click', ExportarFuncionalidades);
 
-// BUG - Não consigo enviar outro arquivo JSON após o primeiro sem ter que reiniciar a pagina (Não resolvido)
+function ExportarFuncionalidades () {
+  let data = JSON.stringify(feature, undefined, 4);
+  let dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(data);
+  let exportFileDefaultName = 'data.json';
+
+  let link = document.getElementById('export-file-download');
+  link.setAttribute('href', dataUri);
+  link.setAttribute('download', exportFileDefaultName);
+  link.click();
+};
+
+// Fim de exportação de JSON;
+
 // BUG - Se o usuário não escrever nada na hora de adicionar funcionalidade, o campo é criado todo em branco. (Não resolvido)

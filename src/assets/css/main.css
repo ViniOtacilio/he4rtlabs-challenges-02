@@ -64,6 +64,19 @@ hr {
     width: 100%;
 }
 
+a:link, a:visited {
+    text-decoration: none;
+    color: inherit;
+	}
+a:hover {
+	text-decoration: none; 
+	color: #000000;
+	}
+a:active {
+    text-decoration: none;
+    color: inherit;
+	}
+
 .container {
     width: 100%;
     max-width: 1140px;
