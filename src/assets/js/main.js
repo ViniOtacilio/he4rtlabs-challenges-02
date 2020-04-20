@@ -184,8 +184,25 @@ function resumo () {
     totalHorasTeste = totalHorasTeste + toNumberTest;
     totalHorasDesenvolvimento = totalHorasDesenvolvimento + toNumber;
   }
-  console.log(totalHorasTeste,totalHorasDesenvolvimento,ValorTotal);
+  numFuncionalidades(1);
+  //console.log(totalHorasTeste,totalHorasDesenvolvimento,ValorTotal);
 }
+
+let numFuncionalidades = (function (n) {
+  return function() {
+    n += 1;
+    if(document.getElementById('numero-funcionalidades')){
+    let removerNum = document.getElementById('numero-funcionalidades');
+    removerNum.parentNode.removeChild(removerNum);
+    }
+    let funcionalidadeResumo = document.createElement('P');
+    funcionalidadeResumo.id = 'numero-funcionalidades';
+    let funcionalidadeResumoText = document.createTextNode(n);
+    let AppendFuncionalidade = funcionalidadeResumo.appendChild(funcionalidadeResumoText);
+
+    document.getElementById('total-funcionalidades').appendChild(funcionalidadeResumo);
+  }
+}(0));
 
 
 // BUG - Se o usuário não escrever nada na hora de adicionar funcionalidade, o campo é criado todo em branco. (Não resolvido)
