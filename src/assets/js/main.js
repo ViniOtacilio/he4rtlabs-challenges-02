@@ -94,9 +94,6 @@ function removeInput (e) {
         feature.splice(i,1);
         break;
       }
-      else {
-        alert('Algo deu errado');
-      }
     };
     divInput.remove(0);
     document.removeEventListener('click', removeInput);
@@ -184,8 +181,10 @@ function resumo () {
     totalHorasTeste = totalHorasTeste + toNumberTest;
     totalHorasDesenvolvimento = totalHorasDesenvolvimento + toNumber;
   }
-  numFuncionalidades(1);
-  //console.log(totalHorasTeste,totalHorasDesenvolvimento,ValorTotal);
+  numFuncionalidades();
+  numHorasDesenvolvimento(totalHorasDesenvolvimento);
+  numHorasTeste(totalHorasTeste);
+  numValorTotal();
 }
 
 let numFuncionalidades = (function (n) {
@@ -201,6 +200,53 @@ let numFuncionalidades = (function (n) {
     let AppendFuncionalidade = funcionalidadeResumo.appendChild(funcionalidadeResumoText);
 
     document.getElementById('total-funcionalidades').appendChild(funcionalidadeResumo);
+  }
+}(0));
+
+
+let numHorasDesenvolvimento = (function (n) {
+  return function(n) {
+    if(document.getElementById('numero-horas-desenvolvimento')){
+    let removerNum = document.getElementById('numero-horas-desenvolvimento');
+    removerNum.parentNode.removeChild(removerNum);
+    }
+    let resumoHorasDesenvolvimento = document.createElement('P');
+    resumoHorasDesenvolvimento.id = 'numero-horas-desenvolvimento';
+    let resumoHorasDesenvolvimentoText = document.createTextNode(n);
+    let AppendFuncionalidadeHorasDesenvolvimento = resumoHorasDesenvolvimento.appendChild(resumoHorasDesenvolvimentoText);
+
+    document.getElementById('horas-desenvolvimento').appendChild(resumoHorasDesenvolvimento);
+  }
+}(0));
+
+let numHorasTeste = (function (n) {
+  return function(n) {
+    if(document.getElementById('numero-horas-teste')){
+    let removerNum = document.getElementById('numero-horas-teste');
+    removerNum.parentNode.removeChild(removerNum);
+    }
+    let resumoHorasTeste = document.createElement('P');
+    resumoHorasTeste.id = 'numero-horas-teste';
+    let resumoHorasTesteText = document.createTextNode(n);
+    let AppendFuncionalidadeHorasTeste = resumoHorasTeste.appendChild(resumoHorasTesteText);
+
+    document.getElementById('horas-teste').appendChild(resumoHorasTeste);
+  }
+}(0));
+
+
+let numValorTotal = (function (n) {
+  return function(n) {
+    if(document.getElementById('numero-horas-total')){
+    let removerNum = document.getElementById('numero-horas-total');
+    removerNum.parentNode.removeChild(removerNum);
+    }
+    let resumoValorTotal = document.createElement('P');
+    resumoValorTotal.id = 'numero-horas-total';
+    let resumoValorTotalText = document.createTextNode(ValorTotal);
+    let AppendFuncionalidadeHorasTeste = resumoValorTotal.appendChild(resumoValorTotalText);
+
+    document.getElementById('horas-total').appendChild(resumoValorTotal);
   }
 }(0));
 
