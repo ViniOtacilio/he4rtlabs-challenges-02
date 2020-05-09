@@ -70,12 +70,18 @@ a:link, a:visited {
 	}
 a:hover {
 	text-decoration: none; 
-	color: #000000;
+	color: #D1BACC;
 	}
 a:active {
     text-decoration: none;
     color: inherit;
-	}
+    }
+    
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
 
 .container {
     width: 100%;
@@ -130,6 +136,7 @@ a:active {
 
 input {
     margin-top: 0.5rem;
+    padding-left: 0.5rem;
     font-size: 1.2rem;
     font-family: 'Roboto', sans-serif;
     border-radius: 0.2rem;
