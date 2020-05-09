@@ -195,6 +195,7 @@ input:focus {
 
 .total-functionalities {
     width: 100%;
+    align-self: flex-start;
     background-color: #53346B;
     margin-left: 5rem;
 }
